@@ -3,5 +3,8 @@
 
     <!-- splash screen-->
     <string name="splash_title">Challenge Accepted</string>
+    <string name="bn_profile">Profile</string>
+    <string name="bn_photos">Photos</string>
+    <string name="bn_tasks">Tasks</string>
 
 </resources>

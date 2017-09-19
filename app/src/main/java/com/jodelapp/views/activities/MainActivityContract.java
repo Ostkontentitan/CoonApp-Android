@@ -7,12 +7,22 @@ public interface MainActivityContract {
 
 
         void loadToDoPage();
+
+        void setBottomNavigationActiveOnToDo();
+
+        void replaceWithPhotosPage();
+
+        void replaceWithProfilePage();
+
+        void replaceWithToDoPage();
     }
 
     interface Presenter {
 
-        void onCreate();
+        void onCreate(boolean hasSavedInstanceState);
 
         void onDestroy();
+
+        void onNavigationItemSelected(int itemId);
     }
 }

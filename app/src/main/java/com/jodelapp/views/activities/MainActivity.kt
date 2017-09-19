@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar
 import com.jodelapp.App
 import com.jodelapp.AppComponent
 import com.jodelapp.R
+import com.jodelapp.features.photos.presentation.UserPhotoListView
 import com.jodelapp.features.todos.presentation.UserTodoListView
 
 import kotlinx.android.synthetic.main.activity_main.*
@@ -26,13 +27,13 @@ class MainActivity : AppCompatActivity(), MainActivityContract.View {
                 .commit()
     }
 
-
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setupScopeGraph(App.get(this).appComponent)
         initViews()
-        presenter.onCreate()
+        val hasSavedInstanceState = savedInstanceState != null
+        presenter.onCreate(hasSavedInstanceState)
     }
 
 
@@ -52,6 +53,30 @@ class MainActivity : AppCompatActivity(), MainActivityContract.View {
 
     private fun initViews() {
         setSupportActionBar(tb_app as Toolbar?)
+        bottom_navigation.setOnNavigationItemSelectedListener({
+            item -> presenter.onNavigationItemSelected(item.itemId)
+            true
+        })
+    }
+
+    override fun setBottomNavigationActiveOnToDo() {
+        bottom_navigation.selectedItemId = R.id.bn_tasks
+    }
+
+    override fun replaceWithPhotosPage() {
+        supportFragmentManager.beginTransaction()
+                .replace(R.id.v_container, UserPhotoListView.instance)
+                .commit()
+    }
+
+    override fun replaceWithProfilePage() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun replaceWithToDoPage() {
+        supportFragmentManager.beginTransaction()
+                .replace(R.id.v_container, UserTodoListView.instance)
+                .commit()
     }
 
 }

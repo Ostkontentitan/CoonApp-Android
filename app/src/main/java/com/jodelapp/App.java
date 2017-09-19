@@ -4,6 +4,8 @@ package com.jodelapp;
 import android.app.Application;
 import android.content.Context;
 
+import com.jakewharton.threetenabp.AndroidThreeTen;
+
 public class App extends Application {
 
     private AppComponent appComponent;
@@ -11,6 +13,7 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        AndroidThreeTen.init(this);
         initComponents();
 
     }

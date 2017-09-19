@@ -71,7 +71,7 @@ dependencies {
     compile "com.google.dagger:dagger:${daggerVersion}"
     compile "com.jakewharton:butterknife:${butterknifeVersion}"
     compile "com.squareup.picasso:picasso:${picassoVersion}"
-    compile 'joda-time:joda-time:2.8.1'
+    compile 'com.jakewharton.threetenabp:threetenabp:1.0.5'
     compile 'com.squareup.okhttp3:okhttp:3.9.0'
     compile 'com.squareup.retrofit2:retrofit:2.3.0'
     compile 'com.squareup.retrofit2:converter-gson:2.3.0'

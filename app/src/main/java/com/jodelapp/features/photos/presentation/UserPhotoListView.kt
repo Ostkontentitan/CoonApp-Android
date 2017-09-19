@@ -2,6 +2,7 @@ package com.jodelapp.features.photos.presentation
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,8 @@ import android.view.ViewGroup
 import com.jodelapp.App
 import com.jodelapp.AppComponent
 import com.jodelapp.R
+import com.jodelapp.features.photos.models.AlbumPresentationModel
+import kotlinx.android.synthetic.main.fragment_photos.*
 
 import javax.inject.Inject
 
@@ -25,6 +28,10 @@ class UserPhotoListView : Fragment(), UserPhotoListContract.View {
         return view
     }
 
+    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        recycler.layoutManager = LinearLayoutManager(context)
+    }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -42,6 +49,10 @@ class UserPhotoListView : Fragment(), UserPhotoListContract.View {
                 .userPhotoListModule(UserPhotoListModule(this))
                 .build()
         scopeGraph!!.inject(this)
+    }
+
+    override fun loadAlbumsList(albums: List<AlbumPresentationModel>?) {
+        recycler.adapter = UserAlbumsAdapter(albums)
     }
 
     companion object {

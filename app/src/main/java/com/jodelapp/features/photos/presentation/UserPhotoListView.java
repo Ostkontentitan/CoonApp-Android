@@ -13,9 +13,6 @@ import com.jodelapp.R;
 
 import javax.inject.Inject;
 
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
-
 public class UserPhotoListView extends Fragment implements UserPhotoListContract.View {
 
 
@@ -23,7 +20,6 @@ public class UserPhotoListView extends Fragment implements UserPhotoListContract
     UserPhotoListContract.Presenter presenter;
 
     private UserPhotoListComponent scopeGraph;
-    private Unbinder unbinder;
 
     public static UserPhotoListView getInstance() {
         return new UserPhotoListView();
@@ -33,7 +29,6 @@ public class UserPhotoListView extends Fragment implements UserPhotoListContract
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle bundle) {
         View view = inflater.inflate(R.layout.fragment_photos, container, false);
         setupScopeGraph(App.get(getActivity()).getAppComponent());
-        unbinder = ButterKnife.bind(this, view);
         return view;
     }
 
@@ -48,7 +43,6 @@ public class UserPhotoListView extends Fragment implements UserPhotoListContract
     public void onDestroyView() {
         super.onDestroyView();
         presenter.onDetached();
-        unbinder.unbind();
     }
 
     private void setupScopeGraph(AppComponent appComponent) {

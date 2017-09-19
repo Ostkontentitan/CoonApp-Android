@@ -11,16 +11,11 @@ import com.jodelapp.features.todos.presentation.UserTodoListView;
 
 import javax.inject.Inject;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
-
 public class MainActivity extends AppCompatActivity implements MainActivityContract.View {
 
     @Inject
     MainActivityContract.Presenter presenter;
 
-    @BindView(R.id.tb_app)
     Toolbar tbApp;
 
     private MainActivityComponent scopeGraph;
@@ -59,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
     }
 
     private void initViews() {
-        ButterKnife.bind(this);
+        tbApp = findViewById(R.id.tb_app);
         setSupportActionBar(tbApp);
     }
 

@@ -18,20 +18,14 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
-
 public class UserTodoListView extends Fragment implements UserTodoListContract.View {
 
     @Inject
     UserTodoListContract.Presenter presenter;
 
-    @BindView(R.id.ls_user_todos)
     RecyclerView lsUserToDos;
 
     private UserTodoListComponent scopeGraph;
-    private Unbinder unbinder;
 
     public static UserTodoListView getInstance() {
         return new UserTodoListView();
@@ -42,7 +36,7 @@ public class UserTodoListView extends Fragment implements UserTodoListContract.V
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_todos, container, false);
         setupScopeGraph(App.get(getActivity()).getAppComponent());
-        unbinder = ButterKnife.bind(this, view);
+        lsUserToDos = view.findViewById(R.id.ls_user_todos);
         initViews();
         return view;
     }
@@ -58,7 +52,6 @@ public class UserTodoListView extends Fragment implements UserTodoListContract.V
     public void onDestroyView() {
         super.onDestroyView();
         presenter.onDetached();
-        unbinder.unbind();
     }
 
     @Override

@@ -12,10 +12,6 @@ import com.jodelapp.features.todos.models.TodoPresentationModel;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
-
 public class UserTodoListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private final List<TodoPresentationModel> todoDataList = new ArrayList<>();
@@ -45,14 +41,13 @@ public class UserTodoListAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
 
     class ToDoItemViewHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.tv_item_todo)
         TextView tvItemToDo;
-        @BindView(R.id.tv_item_status)
         TextView tvItemStatus;
 
         ToDoItemViewHolder(View view) {
             super(view);
-            ButterKnife.bind(this, view);
+            tvItemToDo = view.findViewById(R.id.tv_item_todo);
+            tvItemStatus = view.findViewById(R.id.tv_item_status);
         }
 
         void render(TodoPresentationModel todoPresentationModel) {

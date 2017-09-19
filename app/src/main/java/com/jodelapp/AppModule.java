@@ -5,8 +5,6 @@ import android.app.Application;
 import android.content.Context;
 import android.content.res.Resources;
 
-import org.greenrobot.eventbus.EventBus;
-
 import java.util.Locale;
 
 import javax.inject.Singleton;
@@ -40,11 +38,4 @@ public class AppModule {
     Locale provideLocale() {
         return Locale.getDefault();
     }
-
-    @Provides
-    @Singleton
-    EventBus provideEventBus() {
-        return EventBus.getDefault();
-    }
-
 }

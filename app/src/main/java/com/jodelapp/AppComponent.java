@@ -9,8 +9,6 @@ import com.jodelapp.data.DataModule;
 import com.jodelapp.utilities.UtilsComponent;
 import com.jodelapp.utilities.UtilsModule;
 
-import org.greenrobot.eventbus.EventBus;
-
 import java.util.Locale;
 
 import javax.inject.Singleton;
@@ -29,7 +27,5 @@ public interface AppComponent extends UtilsComponent, DataComponent {
     Resources exposeResources();
 
     Locale exposeLocale();
-
-    EventBus exposeBus();
 
 }

@@ -5,8 +5,6 @@ import com.jodelapp.utilities.rx.RxDisposableFactory;
 import com.jodelapp.utilities.rx.RxDisposables;
 import com.jodelapp.utilities.rx.ThreadTransformer;
 
-import org.greenrobot.eventbus.EventBus;
-
 import javax.inject.Inject;
 
 public final class MainActivityPresenter implements MainActivityContract.Presenter {

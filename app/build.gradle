@@ -69,7 +69,6 @@ dependencies {
     // 3rd part libs
     compile 'io.reactivex.rxjava2:rxjava:2.0.2'
     compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
-    compile "org.greenrobot:eventbus:${eventBusVersion}"
     compile "com.google.dagger:dagger:${daggerVersion}"
     compile "com.jakewharton:butterknife:${butterknifeVersion}"
     compile "com.squareup.picasso:picasso:${picassoVersion}"

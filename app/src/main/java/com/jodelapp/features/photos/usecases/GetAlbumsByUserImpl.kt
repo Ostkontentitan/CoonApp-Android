@@ -13,7 +13,7 @@ class GetAlbumsByUserImpl @Inject constructor(val apiService: ApiService ) : Get
     override fun call(userId: String): Single<List<AlbumPresentationModel>> {
         return apiService.getAlbums(userId)
                 .flatMapIterable { albums -> albums }
-                .map { album -> AlbumPresentationModel(album.title) }
+                .map { album -> AlbumPresentationModel(album.id, album.title) }
                 .toList()
     }
 }

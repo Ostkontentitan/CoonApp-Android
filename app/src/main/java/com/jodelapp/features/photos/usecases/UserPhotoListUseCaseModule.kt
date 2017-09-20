@@ -10,4 +10,8 @@ class UserPhotoListUseCaseModule{
     internal fun provideGetAlbumsByUser(impl: GetAlbumsByUserImpl): GetAlbumsByUser {
         return impl
     }
+    @Provides
+    internal fun provideGetPhotosByAlbum(impl: GetPhotosByAlbumImpl): GetPhotosByAlbum {
+        return impl
+    }
 }

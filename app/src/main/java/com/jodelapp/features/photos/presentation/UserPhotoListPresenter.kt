@@ -2,7 +2,9 @@ package com.jodelapp.features.photos.presentation
 
 import android.util.Log
 import com.jodelapp.features.photos.models.AlbumPresentationModel
+import com.jodelapp.features.photos.models.PhotoPresentationModel
 import com.jodelapp.features.photos.usecases.GetAlbumsByUser
+import com.jodelapp.features.photos.usecases.GetPhotosByAlbum
 import com.jodelapp.features.user.usecases.GetActiveUser
 import com.jodelapp.utilities.rx.RxDisposableFactory
 import com.jodelapp.utilities.rx.RxDisposables
@@ -15,7 +17,8 @@ class UserPhotoListPresenter
                     val getActiveUser: GetActiveUser,
                     val threadTransformer: ThreadTransformer,
                     factory: RxDisposableFactory,
-                    private val getAlbumsByUser: GetAlbumsByUser) : UserPhotoListContract.Presenter {
+                    val getAlbumsByUser: GetAlbumsByUser,
+                    val getPhotosByAlbum: GetPhotosByAlbum) : UserPhotoListContract.Presenter {
 
     val disposables : RxDisposables
 
@@ -33,5 +36,13 @@ class UserPhotoListPresenter
 
     override fun onDetached() {
         disposables.clear()
+    }
+
+    override fun onAlbumClicked(album: AlbumPresentationModel) {
+        disposables.add(getPhotosByAlbum.call(album.id)
+                .compose<List<PhotoPresentationModel>>(threadTransformer.applySchedulers<List<PhotoPresentationModel>>())
+                .subscribe(
+                        { photos -> view.loadPhotosGrid(photos) }
+                ) { error -> Log.e("AlbumPhoto", error.message) })
     }
 }

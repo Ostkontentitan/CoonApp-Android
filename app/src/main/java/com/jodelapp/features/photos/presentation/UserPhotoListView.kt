@@ -2,6 +2,7 @@ package com.jodelapp.features.photos.presentation
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import com.jodelapp.App
 import com.jodelapp.AppComponent
 import com.jodelapp.R
 import com.jodelapp.features.photos.models.AlbumPresentationModel
+import com.jodelapp.features.photos.models.PhotoPresentationModel
 import kotlinx.android.synthetic.main.fragment_photos.*
 
 import javax.inject.Inject
@@ -30,7 +32,6 @@ class UserPhotoListView : Fragment(), UserPhotoListContract.View {
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        recycler.layoutManager = LinearLayoutManager(context)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -51,8 +52,17 @@ class UserPhotoListView : Fragment(), UserPhotoListContract.View {
         scopeGraph!!.inject(this)
     }
 
-    override fun loadAlbumsList(albums: List<AlbumPresentationModel>?) {
-        recycler.adapter = UserAlbumsAdapter(albums)
+    override fun loadAlbumsList(albums: List<AlbumPresentationModel>) {
+        recycler.layoutManager = LinearLayoutManager(context)
+        val adapter = UserAlbumsAdapter(albums)
+        recycler.adapter = adapter
+        adapter.setOnItemClickListener { presenter.onAlbumClicked(it) }
+    }
+
+    override fun loadPhotosGrid(photos: List<PhotoPresentationModel>) {
+        recycler.layoutManager = GridLayoutManager(context, 3)
+        val adapter = AlbumPhotosAdapter(photos)
+        recycler.adapter = adapter
     }
 
     companion object {
@@ -60,5 +70,7 @@ class UserPhotoListView : Fragment(), UserPhotoListContract.View {
         val instance: UserPhotoListView
             get() = UserPhotoListView()
     }
+
+
 
 }

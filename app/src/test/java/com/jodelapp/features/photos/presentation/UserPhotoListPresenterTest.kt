@@ -4,17 +4,15 @@ import com.jodelapp.features.photos.models.AlbumPresentationModel
 import com.jodelapp.features.photos.models.PhotoPresentationModel
 import com.jodelapp.features.photos.usecases.GetAlbumsByUser
 import com.jodelapp.features.photos.usecases.GetPhotosByAlbum
-import com.jodelapp.features.user.model.User
-import com.jodelapp.features.user.usecases.GetActiveUser
+import com.jodelapp.user.model.User
+import com.jodelapp.user.usecases.GetActiveUser
 import com.jodelapp.utilities.rx.RxDisposableFactory
 import com.jodelapp.utilities.rx.RxDisposables
 import com.jodelapp.utilities.rx.ThreadTransformer
 import io.reactivex.Single
 import io.reactivex.SingleTransformer
-import org.hamcrest.core.AnyOf
 import org.junit.Before
 import org.junit.Test
-import org.mockito.ArgumentMatchers
 import org.mockito.Mockito.*
 import org.mockito.Mockito.`when` as whenCalled
 

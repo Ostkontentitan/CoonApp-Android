@@ -1,9 +1,7 @@
-package com.jodelapp.features.user
+package com.jodelapp.user
 
-import com.jodelapp.features.user.model.User
-import io.reactivex.Observable
+import com.jodelapp.user.model.User
 import io.reactivex.Single
-import io.reactivex.rxkotlin.Observables
 
 /**
  * Created by ottek on 20.09.2017.

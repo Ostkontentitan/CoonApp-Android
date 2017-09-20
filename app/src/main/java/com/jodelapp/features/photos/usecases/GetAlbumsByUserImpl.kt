@@ -2,7 +2,6 @@ package com.jodelapp.features.photos.usecases
 
 import com.jodelapp.data.api.ApiService
 import com.jodelapp.features.photos.models.AlbumPresentationModel
-import com.jodelapp.features.user.usecases.GetActiveUser
 import io.reactivex.Single
 import javax.inject.Inject
 

@@ -5,7 +5,7 @@ import android.util.Log
 import com.jodelapp.features.todos.models.TodoPresentationModel
 
 import com.jodelapp.features.todos.usecases.GetTodoListByUser
-import com.jodelapp.features.user.usecases.GetActiveUser
+import com.jodelapp.user.usecases.GetActiveUser
 import com.jodelapp.utilities.rx.RxDisposableFactory
 import com.jodelapp.utilities.rx.RxDisposables
 import com.jodelapp.utilities.rx.ThreadTransformer

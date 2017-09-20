@@ -1,7 +1,7 @@
-package com.jodelapp.features.user.usecases
+package com.jodelapp.user.usecases
 
-import com.jodelapp.features.user.UserManager
-import com.jodelapp.features.user.model.User
+import com.jodelapp.user.UserManager
+import com.jodelapp.user.model.User
 import io.reactivex.Single
 import javax.inject.Inject
 

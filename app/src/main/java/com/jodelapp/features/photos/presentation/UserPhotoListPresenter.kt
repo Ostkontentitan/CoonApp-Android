@@ -5,11 +5,10 @@ import com.jodelapp.features.photos.models.AlbumPresentationModel
 import com.jodelapp.features.photos.models.PhotoPresentationModel
 import com.jodelapp.features.photos.usecases.GetAlbumsByUser
 import com.jodelapp.features.photos.usecases.GetPhotosByAlbum
-import com.jodelapp.features.user.usecases.GetActiveUser
+import com.jodelapp.user.usecases.GetActiveUser
 import com.jodelapp.utilities.rx.RxDisposableFactory
 import com.jodelapp.utilities.rx.RxDisposables
 import com.jodelapp.utilities.rx.ThreadTransformer
-import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 
 class UserPhotoListPresenter

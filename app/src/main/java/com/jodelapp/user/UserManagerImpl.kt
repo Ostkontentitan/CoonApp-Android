@@ -1,6 +1,6 @@
-package com.jodelapp.features.user
+package com.jodelapp.user
 
-import com.jodelapp.features.user.model.User
+import com.jodelapp.user.model.User
 import io.reactivex.Single
 import javax.inject.Inject
 

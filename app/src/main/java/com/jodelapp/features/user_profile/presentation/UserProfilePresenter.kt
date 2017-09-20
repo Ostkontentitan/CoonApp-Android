@@ -1,9 +1,9 @@
 package com.jodelapp.features.user_profile.presentation
 
 import android.util.Log
-import com.jodelapp.features.user.model.User
-import com.jodelapp.features.user.usecases.GetActiveUser
-import com.jodelapp.features.user.usecases.SetActiveUser
+import com.jodelapp.user.model.User
+import com.jodelapp.user.usecases.GetActiveUser
+import com.jodelapp.user.usecases.SetActiveUser
 import com.jodelapp.features.user_profile.models.UserPresentationModel
 import com.jodelapp.features.user_profile.usecases.GetUserProfiles
 import com.jodelapp.utilities.rx.RxDisposableFactory

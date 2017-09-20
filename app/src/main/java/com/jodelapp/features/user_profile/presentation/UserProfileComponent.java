@@ -2,7 +2,7 @@ package com.jodelapp.features.user_profile.presentation;
 
 import com.jodelapp.AppComponent;
 import com.jodelapp.di.scope.ViewScope;
-import com.jodelapp.features.user.usecases.UserUseCaseModule;
+import com.jodelapp.user.usecases.UserUseCaseModule;
 import com.jodelapp.features.user_profile.usecases.UserProfileUseCaseModule;
 
 import dagger.Component;

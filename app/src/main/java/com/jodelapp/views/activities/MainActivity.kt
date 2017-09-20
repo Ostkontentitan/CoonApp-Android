@@ -9,6 +9,7 @@ import com.jodelapp.AppComponent
 import com.jodelapp.R
 import com.jodelapp.features.photos.presentation.UserPhotoListView
 import com.jodelapp.features.todos.presentation.UserTodoListView
+import com.jodelapp.features.user_profile.presentation.UserProfileView
 
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -70,7 +71,9 @@ class MainActivity : AppCompatActivity(), MainActivityContract.View {
     }
 
     override fun replaceWithProfilePage() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        supportFragmentManager.beginTransaction()
+                .replace(R.id.v_container, UserProfileView.instance)
+                .commit()
     }
 
     override fun replaceWithToDoPage() {

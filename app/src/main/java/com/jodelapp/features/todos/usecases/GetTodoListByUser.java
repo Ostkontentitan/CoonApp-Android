@@ -14,7 +14,7 @@ import io.reactivex.Single;
 
 public interface GetTodoListByUser {
 
-    Single<List<TodoPresentationModel>> call(@NonNull String userId);
+    Single<List<TodoPresentationModel>> call(@NonNull Integer userId);
 }
 
 final class GetTodoListByUserImpl implements GetTodoListByUser {
@@ -28,7 +28,7 @@ final class GetTodoListByUserImpl implements GetTodoListByUser {
 
 
     @Override
-    public Single<List<TodoPresentationModel>> call(@NonNull String userId) {
+    public Single<List<TodoPresentationModel>> call(@NonNull Integer userId) {
         return apiService.getToDos(userId)
                 .flatMapIterable(todos -> todos)
                 .map(toDo -> new TodoPresentationModel(String.valueOf(toDo.getId()), toDo.getTitle(), toDo.getCompleted() ? "done" : "todo"))

@@ -3,7 +3,6 @@
     <!-- no implementation of profile as for now so we keep it disabled -->
     <item
         android:id="@+id/bn_profile"
-        android:enabled="false"
         android:icon="@drawable/ic_person_black_24dp"
         android:title="@string/bn_profile" />
     <item

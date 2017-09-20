@@ -8,5 +8,5 @@ import io.reactivex.Single
  * Created by ottek on 19.09.2017.
  */
 interface GetAlbumsByUser {
-    fun call(userId: String): Single<List<AlbumPresentationModel>>
+    fun call(userId: Int): Single<List<AlbumPresentationModel>>
 }

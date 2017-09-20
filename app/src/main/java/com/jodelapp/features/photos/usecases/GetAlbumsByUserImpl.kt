@@ -10,7 +10,7 @@ import javax.inject.Inject
  * Created by ottek on 19.09.2017.
  */
 class GetAlbumsByUserImpl @Inject constructor(val apiService: ApiService ) : GetAlbumsByUser {
-    override fun call(userId: String): Single<List<AlbumPresentationModel>> {
+    override fun call(userId: Int): Single<List<AlbumPresentationModel>> {
         return apiService.getAlbums(userId)
                 .flatMapIterable { albums -> albums }
                 .map { album -> AlbumPresentationModel(album.id, album.title) }

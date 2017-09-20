@@ -11,7 +11,7 @@ import javax.inject.Inject
  */
 class GetPhotosByAlbumImpl @Inject constructor(val apiService: ApiService)  : GetPhotosByAlbum {
     override fun call(albumId: Int): Single<List<PhotoPresentationModel>> {
-        return apiService.getPhotos("${albumId}")
+        return apiService.getPhotos(albumId)
                 .flatMapIterable { photos -> photos }
                 .map { photo -> PhotoPresentationModel(photo.title, photo.thumbnailUrl) }
                 .toList()

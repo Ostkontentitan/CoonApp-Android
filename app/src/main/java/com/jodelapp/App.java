@@ -22,6 +22,10 @@ public class App extends Application {
         return appComponent;
     }
 
+    public void setAppComponent(AppComponent appComponent) {
+        this.appComponent = appComponent;
+    }
+
     public static App get(Context context) {
         return (App) context.getApplicationContext();
     }

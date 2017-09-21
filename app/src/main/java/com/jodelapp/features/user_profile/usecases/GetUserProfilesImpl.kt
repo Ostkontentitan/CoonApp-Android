@@ -14,9 +14,9 @@ class GetUserProfilesImpl @Inject constructor(val apiService: ApiService) : GetU
         return apiService.userProfiles
                 .flatMapIterable { profiles -> profiles }
                 .map { profile -> UserPresentationModel(profile.id, profile.name,
-                        "${profile.address.suite} \n${profile.address.street} \n${profile.address.city} \n",
-                        "${profile.company.name} \n${profile.company.catchPhrase} \n${profile.company.bs}",
-                        "${profile.email} \n${profile.phone}") }
+                        "${profile.address.suite}\n${profile.address.street}\n${profile.address.city}",
+                        "${profile.company.name}\n${profile.company.catchPhrase}\n${profile.company.bs}",
+                        "${profile.email}\n${profile.phone}") }
                 .toList()
     }
 }
